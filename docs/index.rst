@@ -21,11 +21,8 @@ Schema
 ======
 .. image:: assets/schema.png
 
-Represents the interaction between SERVER/IA and SERVER/GUI
+Represents the interaction between SERVER/IA and SERVER/GUI.
    
-We suggest you to read the pages dedicated to each part: 
-:ref:`Core:Core`, :ref:`Games:Games`, :ref:`Displays:Displays`, :ref:`Events:Events` & :ref:`Components:Components`
-
 .. warning::
 
    Don't underestimate the difficulty of the project only by seeing this page.
