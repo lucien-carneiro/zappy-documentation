@@ -10,30 +10,30 @@ A small description of each command is listed in the table and all parameters ar
 
 Index
 =====
-**X** width or horizontal position
-**Y** height or vertical position
-**q0** resource 0 (food) quantity
-**q1** resource 1 (linemate) quantity
-**q2** resource 2 (deraumere) quantity
-**q3** resource 3 (sibur) quantity
-**q4** resource 4 (mendiane) quantity
-**q5** resource 5 (phiras) quantity
-**q6** resource 6 (thystame) quantity
+- **X** width or horizontal position
+- **Y** height or vertical position
+- **q0** resource 0 (food) quantity
+- **q1** resource 1 (linemate) quantity
+- **q2** resource 2 (deraumere) quantity
+- **q3** resource 3 (sibur) quantity
+- **q4** resource 4 (mendiane) quantity
+- **q5** resource 5 (phiras) quantity
+- **q6** resource 6 (thystame) quantity
 
-**n** player number
-**O** orientation: 1(N), 2(E), 3(S), 4(W)
-**L** player or incantation level
-**e** egg number
-**T** time unit
-**N** name of the team
-**R** incantation result
-**M** message
-**I** resource number
+- **n** player number
+- **O** orientation: 1(N), 2(E), 3(S), 4(W)
+- **L** player or incantation level
+- **e** egg number
+- **T** time unit
+- **N** name of the team
+- **R** incantation result
+- **M** message
+- **I** resource number
 
 Commands
 ========
 +---------------------------------------+--------------+------------------------------------------------+
-|            SERVER MESSAGE             | GUI COMMANDS |                  DESCRIPTION                   |
+|           SERVER MESSAGES             | GUI COMMANDS |                  DESCRIPTION                   |
 +=======================================+==============+================================================+
 |msz X Y                                |msz X Y       |map size                                        |
 +---------------------------------------+--------------+------------------------------------------------+
