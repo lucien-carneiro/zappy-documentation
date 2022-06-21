@@ -3,7 +3,7 @@ Zappy
 *****
 
 Welcome to our Zappy documentation!
-====================================
+===================================
 
 **Zappy** is the final project made in our second year in Epitech.
 The goal of this project is to create a network game.
@@ -30,6 +30,7 @@ Represents the interaction between SERVER/IA and SERVER/GUI.
 Contents
 ========
 .. toctree::
+   Usage
    Commands
    Teams
    Time
