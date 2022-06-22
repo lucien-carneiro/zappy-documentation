@@ -1,8 +1,8 @@
-***************************
-Zappy Project Documentation
-***************************
+*****
+Zappy
+*****
 
-Epitech Project, 2022
+Epitech Project, 2022 |
 2nd Year (PGE)
 
 Contributors

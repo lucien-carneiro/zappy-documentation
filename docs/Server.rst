@@ -9,14 +9,14 @@ Hello World
 Communication
 =============
 In this part we will see in more details the communication protocol
-and the management of the commands received by the server
+and the management of the commands received by the server.
 
 Connection
 **********
 As noticed on the diagram on the home page, the server communicates with the AI and the GUI:
 
-- One function takes care of the GUI connection *gui_command_connection*
-- Another one takes care of the AI connection which takes possession of the players *player_command_connection*.
+- One function takes care of the GUI connection: *gui_command_connection*
+- Another one takes care of the AI connection which takes possession of the players: *player_command_connection*.
 
 .. code:: C
 
@@ -45,7 +45,7 @@ As noticed on the diagram on the home page, the server communicates with the AI 
 Commands Queue
 **************
 In order to receive a large number of commands and to be able to process them all,
-we have set up a FIFO (First In First Out) type queue system.
+we have set up a FIFO (First In First Out) type queue system:
 
 .. code:: C
 
@@ -87,11 +87,11 @@ Here is the dequeue function which allows to exit the chain in order to execute 
 
 Player
 ======
-We will explain the management of players in our server
+We will explain the management of players in our server.
 
 Inventory
 *********
-The player inventory is composed of 2 main parts:
+The player inventory is composed of two main parts:
 
 - The foods that serve the survival of the player
 - The ores which are used to make an incantation
