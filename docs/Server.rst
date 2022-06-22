@@ -1,14 +1,43 @@
 **************
-Part 2: Server
+Part 1: Server
 **************
 
 Description
 ===========
 Hello World
 
+Communication
+=============
+
+Connection
+**********
+
+.. code:: C
+
+    void gui_command_connection(char **args, client_t *client)
+    {
+        for (size_t i = 0; GUI_COMMANDS[i].cmd; i++) {
+            if (strcmp(GUI_COMMANDS[i].cmd, args[0]) == 0) {
+                enqueue_command(client->player, args, &GUI_COMMANDS[i]);
+                break;
+            }
+        }
+    }
+
+.. code:: C
+
+    void player_command_connection(char **args, client_t *client)
+    {
+        for (size_t i = 0; PLAYER_COMMANDS[i].cmd; i++) {
+            if (strcmp(PLAYER_COMMANDS[i].cmd, args[0]) == 0) {
+                enqueue_command(client->player, args, &PLAYER_COMMANDS[i]);
+                break;
+            }
+        }
+    }
 
 Commands Queue
-==============
+**************
 In order to receive a large number of commands and to be able to process them all,
 we have set up a FIFO (First In First Out) type queue system.
 
@@ -35,6 +64,7 @@ we have set up a FIFO (First In First Out) type queue system.
 
 
 Here is the dequeue function which allows to exit the chain in order to execute the command entered:
+
 .. code:: C
 
     void dequeue_command(player_t *player)
@@ -48,3 +78,20 @@ Here is the dequeue function which allows to exit the chain in order to execute 
             player->command[i] = player->command[i + 1];
         }
     }
+
+Player
+======
+
+Inventory
+*********
+
+.. code:: C
+    typedef struct inventory_s {
+        int food;
+        int linemate;
+        int deraumere;
+        int sibur;
+        int mendiane;
+        int phiras;
+        int thystame;
+    } inventory_t;

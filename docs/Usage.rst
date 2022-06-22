@@ -2,6 +2,7 @@ Usage
 =====
 
 To use Zappy Server:
+
 .. code:: none
 
     ∼/B-YEP-410> ./zappy_server –help
@@ -14,6 +15,7 @@ To use Zappy Server:
         freq        is the reciprocal of time unit for execution of actions
 
 To use Zappy GUI:
+
 .. code:: none
 
     ∼/B-YEP-410> ./zappy_gui –help
@@ -22,6 +24,7 @@ To use Zappy GUI:
         machine     is the name of the machine; localhost by default
 
 To use Zappy IA:
+
 .. code:: none
 
     ∼/B-YEP-410> ./zappy_ai –help
