@@ -3,6 +3,7 @@ Usage
 
 To use Zappy Server:
 .. code-block:: console
+
     ∼/B-YEP-410> ./zappy_server –help
     USAGE: ./zappy_server -p port -x width -y height -n name1 name2 ... -c clientsNb -f freq
         port        is the port number
@@ -14,6 +15,7 @@ To use Zappy Server:
 
 To use Zappy GUI:
 .. code-block:: console
+
     ∼/B-YEP-410> ./zappy_gui –help
     USAGE: ./zappy_ai -p port -h machine
         port        is the port number
@@ -21,6 +23,7 @@ To use Zappy GUI:
 
 To use Zappy IA:
 .. code-block:: console
+
     ∼/B-YEP-410> ./zappy_ai –help
     USAGE: ./zappy_ai -p port -n name -h machine
         port        is the port number

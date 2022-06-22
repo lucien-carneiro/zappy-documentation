@@ -32,6 +32,9 @@ Contents
 .. toctree::
    Usage
    Commands
+   Server
+   GUI
+   IA
    Teams
    Time
    Object
