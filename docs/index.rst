@@ -22,10 +22,18 @@ Schema
 .. image:: assets/schema.png
 
 Represents the interaction between SERVER/IA and SERVER/GUI.
-   
+
+Information
+===========
+.. info::
+
+   We are a team of 6 students on this project.
+   To divide the work, 2 people are in charge of each of the 3 parts that will be detailed in this documentation.
+
 .. warning::
 
-   Don't underestimate the difficulty of the project only by seeing this page.
+   This project requires a lot of work during 4 weeks.
+   Time management must be well thought out in order to complete this project on time!
 
 Contents
 ========
