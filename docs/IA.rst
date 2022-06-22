@@ -4,86 +4,43 @@ Part 3: IA
 
 Description
 ===========
-In order to better define the communication protocol,
-we have made a summary table of the different commands used for the server transmission and the user interface reception.
-A small description of each command is listed in the table and all parameters are defined in the index.
+Each player of the game is by default inactive, to animate a player the artificial intelligence must take possession of it.
+To do this, it must communicate with the server and send it precise instructions.
+**Its objective:** reach level 8 as soon as possible!
 
-Index
-=====
-- **X** width or horizontal position
-- **Y** height or vertical position
-- **q0** resource 0 (food) quantity
-- **q1** resource 1 (linemate) quantity
-- **q2** resource 2 (deraumere) quantity
-- **q3** resource 3 (sibur) quantity
-- **q4** resource 4 (mendiane) quantity
-- **q5** resource 5 (phiras) quantity
-- **q6** resource 6 (thystame) quantity
+Initialisation
+==============
 
-- **n** player number
-- **O** orientation: 1(N), 2(E), 3(S), 4(W)
-- **L** player or incantation level
-- **e** egg number
-- **T** time unit
-- **N** name of the team
-- **R** incantation result
-- **M** message
-- **I** resource number
+Client interface
+****************
+Here is Client class constructor:
 
-Commands
-========
-+---------------------------------------+--------------+------------------------------------------------+
-|           SERVER MESSAGES             | GUI COMMANDS |                  DESCRIPTION                   |
-+=======================================+==============+================================================+
-|msz X Y                                |msz X Y       |map size                                        |
-+---------------------------------------+--------------+------------------------------------------------+
-|bct X Y q0 q1 q2 q3 q4 q5 q6           |bct X Y       |content of a tile                               |
-+---------------------------------------+--------------+------------------------------------------------+
-|bct X Y q0 q1 q2 q3 q4 q5 q6\n * nb    |mct           |content of the map (all the tiles)              |
-+---------------------------------------+--------------+------------------------------------------------+
-|tna N\n * nbr_teams                    |tna           |name of all the teams                           |
-+---------------------------------------+--------------+------------------------------------------------+
-|pnw n X Y O L N                        |              |creation of a new player                        |
-+---------------------------------------+--------------+------------------------------------------------+
-|pns n R                                |              |player state ( 1 alive, 0 not used )            |
-+---------------------------------------+--------------+------------------------------------------------+
-|ppo n X Y O                            |ppo #n        |player’s position                               |
-+---------------------------------------+--------------+------------------------------------------------+
-|plv n L                                |plv #n        |player’s level                                  |
-+---------------------------------------+--------------+------------------------------------------------+
-|pin n q0 q1 q2 q3 q4 q5 q6             |pin #n        |player’s inventory                              |
-+---------------------------------------+--------------+------------------------------------------------+
-|pex n                                  |              |explusion                                       |
-+---------------------------------------+--------------+------------------------------------------------+
-|pbc n M                                |              |broadcast                                       |
-+---------------------------------------+--------------+------------------------------------------------+
-|pic X Y L n n …                        |              |start of an incantation (by the first player)   |
-+---------------------------------------+--------------+------------------------------------------------+
-|pie X Y R                              |              |end of an incantation                           |
-+---------------------------------------+--------------+------------------------------------------------+
-|pdr n i                                |              |resource dropping                               |
-+---------------------------------------+--------------+------------------------------------------------+
-|pgt n i                                |              |resource collecting                             |
-+---------------------------------------+--------------+------------------------------------------------+
-|pdi n                                  |              |death of a player                               |
-+---------------------------------------+--------------+------------------------------------------------+
-|enw n e X Y                            |              |an egg was laid by a player                     |
-+---------------------------------------+--------------+------------------------------------------------+
-|eht e                                  |              |egg hatching                                    |
-+---------------------------------------+--------------+------------------------------------------------+
-|sgt T                                  |sgt           |time unit request                               |
-+---------------------------------------+--------------+------------------------------------------------+
-|seg N                                  |              |end of game                                     |
-+---------------------------------------+--------------+------------------------------------------------+
-|suc                                    |              |unknown command                                 |
-+---------------------------------------+--------------+------------------------------------------------+
-|sbp                                    |              |command parameter                               |
-+---------------------------------------+--------------+------------------------------------------------+
-|look                                   |              |look animation                                  |
-+---------------------------------------+--------------+------------------------------------------------+
-|pgte n R                               |              |take ressource end 1 or 0                       |
-+---------------------------------------+--------------+------------------------------------------------+
-|pexed n X Y                            |              |ejected to this coords                          |
-+---------------------------------------+--------------+------------------------------------------------+
-|pnw and pin                            |pls           |get all players at start                        |
-+---------------------------------------+--------------+------------------------------------------------+
+.. code:: python
+
+    self.team = team_name
+    self.hostname = hostname
+    self.port = port
+    self.client_num = 0
+    self.data = Data(0, 0)
+    self.socket = None
+    self.selectors = selectors.DefaultSelector()
+    self.just_log = 0
+    self.logged = 0
+    self.ia = IA(self.team)
+
+Server Connection
+*****************
+Initialise a socket which connects to the server.
+We initialize the selectors to and be sure to receive the Welcome message.
+
+.. code:: python
+
+    def connect_to_server(self):
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.socket.setblocking(False)
+        self.socket.connect_ex((self.hostname, safe_cast(self.port, int)))
+        events = selectors.EVENT_READ | selectors.EVENT_WRITE
+        self.selectors.register(self.socket, events)
+
+Algorithm
+=========
