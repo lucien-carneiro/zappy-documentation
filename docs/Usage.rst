@@ -2,7 +2,7 @@ Usage
 =====
 
 To use Zappy Server:
-.. code-block:: console
+.. code:: none
 
     ∼/B-YEP-410> ./zappy_server –help
     USAGE: ./zappy_server -p port -x width -y height -n name1 name2 ... -c clientsNb -f freq
@@ -14,7 +14,7 @@ To use Zappy Server:
         freq        is the reciprocal of time unit for execution of actions
 
 To use Zappy GUI:
-.. code-block:: console
+.. code:: none
 
     ∼/B-YEP-410> ./zappy_gui –help
     USAGE: ./zappy_ai -p port -h machine
@@ -22,7 +22,7 @@ To use Zappy GUI:
         machine     is the name of the machine; localhost by default
 
 To use Zappy IA:
-.. code-block:: console
+.. code:: none
 
     ∼/B-YEP-410> ./zappy_ai –help
     USAGE: ./zappy_ai -p port -n name -h machine

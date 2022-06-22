@@ -4,6 +4,7 @@ Part 2: Server
 
 Description
 ===========
+Hello World
 
 
 Commands Queue
@@ -11,7 +12,7 @@ Commands Queue
 In order to receive a large number of commands and to be able to process them all,
 we have set up a FIFO (First In First Out) type queue system.
 
-.. code-blocks:: C
+.. code:: C
 
     void enqueue_command(player_t *player, char **args, command_t *command)
     {
@@ -34,7 +35,7 @@ we have set up a FIFO (First In First Out) type queue system.
 
 
 Here is the dequeue function which allows to exit the chain in order to execute the command entered:
-.. code-blocks:: C
+.. code:: C
 
     void dequeue_command(player_t *player)
     {
