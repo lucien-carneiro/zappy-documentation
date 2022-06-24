@@ -4,7 +4,9 @@ Part 1: Server
 
 Description
 ===========
-Hello World
+The server is the main engine that will interfere between the AI and the GUI.
+It will exchange all data with the AI and execute these instructions.
+At the same time, it send the information to the GUI.
 
 Communication
 =============
