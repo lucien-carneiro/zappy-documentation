@@ -18,14 +18,17 @@ In this menu, it is also possible to set the keys and the sensitivity.
 
 .. code:: C#
 
+    // Host field
     public void setHostText(string value) {
         host_text.GetComponent<UnityEngine.UI.InputField>().text = value;
         host = value;
     }
+    // Port field
     public void setPortText(string value) {
         port_text.GetComponent<UnityEngine.UI.InputField>().text = value;
         port = value;
     }
+    // Connect button
     public void click_connect() {
         string host = host_text.GetComponent<UnityEngine.UI.InputField>().text;
         string port = port_text.GetComponent<UnityEngine.UI.InputField>().text;
@@ -33,6 +36,7 @@ In this menu, it is also possible to set the keys and the sensitivity.
         connect_menu.GetComponent<Connect_menu>().setInfos(host, int.Parse(port));
         connect_menu.SetActive(true);
     }
+    // Settings button
     public void click_settings() {
         host = host_text.GetComponent<UnityEngine.UI.InputField>().text;
         port = port_text.GetComponent<UnityEngine.UI.InputField>().text;
@@ -50,6 +54,7 @@ When all the information sent by the server are received by the game, it will st
 
 .. code:: C#
 
+    // Map generation
     public void validateMsz() {
         if (validations.Contains("msz"))
             return;
@@ -58,6 +63,7 @@ When all the information sent by the server are received by the game, it will st
         connection_controller.GetComponent<Connection_manager>().send("tna");
         finalValidation();
     }
+    // Teams recuperation
     public void validateTna() {
         if (validations.Contains("tna"))
             return;
@@ -66,6 +72,7 @@ When all the information sent by the server are received by the game, it will st
         connection_controller.GetComponent<Connection_manager>().send("sgt");
         finalValidation();
     }
+    // Time recuperation
     public void validateSgt() {
         if (validations.Contains("sgt"))
             return;
@@ -74,6 +81,7 @@ When all the information sent by the server are received by the game, it will st
         connection_controller.GetComponent<Connection_manager>().send("pls");
         finalValidation();
     }
+    // Players recuperation
     public void validatePls() {
         if (validations.Contains("pls"))
             return;
@@ -94,6 +102,6 @@ By clicking on the islands or players, we can see what they contain (resources, 
 
 .. note::
 
-The gui is in permanent waiting of a command,
-once this one received, it will compare it in the file **Args_manager.cs**
-and execute the action in the **Commands.cs** script.
+    The gui is in permanent waiting of a command,
+    once this one received, it will compare it in the file **Args_manager.cs**
+    and execute the action in the **Commands.cs** script.
